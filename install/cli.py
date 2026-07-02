@@ -37,7 +37,6 @@ Gotchas:
 """
 
 import argparse
-import importlib.util
 import logging
 import os
 import sys
@@ -50,28 +49,17 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
+from mca_mcp import servers as server_registry
 from mca_mcp.common import registration
 from mca_mcp.common import venv as venv_helpers
 
 
 # --- Constants ----------------------------------------------------------------
 
-# Registration names Claude Code will show.  Kept identical to the historical
-# MCA Editor names so existing muscle memory / docs still apply.
-_DCC_REGISTRY = {
-    "maya": {
-        "server_name": "MCAMayaMCP",
-        "module": "mca_mcp.maya.server",
-    },
-    "unreal": {
-        "server_name": "MCAUnrealMCP",
-        "module": "mca_mcp.unreal.server",
-    },
-    "blender": {
-        "server_name": "MCABlenderMCP",
-        "module": "mca_mcp.blender.server",
-    },
-}
+# The DCC registry is defined once in ``mca_mcp.servers`` so the installer and
+# any embedding app (e.g. the MCA Editor shim) agree on names + module paths.
+# Aliased here under the historical name used throughout this module.
+_DCC_REGISTRY = server_registry.SERVERS
 
 # Default location for the shared MCP venv.  Overridable via ``--venv`` or the
 # ``MCA_MCP_VENV`` environment variable so the editor shim can point it at the
@@ -105,19 +93,15 @@ def _server_script_path(dcc):
     """
     Resolve the absolute path to a DCC server's ``server.py`` file.
 
-    Uses the import system so the path is correct whether this package is a
-    git checkout or an installed wheel.
+    Thin wrapper over :func:`mca_mcp.servers.server_script_path` so callers in
+    this module keep the historical private name.
 
     :param str dcc: The DCC key.
     :return: Absolute path to the server module file.
     :rtype: str
     :raises RuntimeError: If the module cannot be located.
     """
-    module_name = _DCC_REGISTRY[dcc]["module"]
-    spec = importlib.util.find_spec(module_name)
-    if spec is None or not spec.origin:
-        raise RuntimeError("Could not locate server module %s" % module_name)
-    return os.path.abspath(spec.origin)
+    return server_registry.server_script_path(dcc)
 
 
 # --- Commands -----------------------------------------------------------------

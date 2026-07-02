@@ -8,10 +8,14 @@ while the editor keeps consuming them through a thin shim.
 > **Status (2026-07-02):** Phases 0–4 DONE. The package is standalone and usable
 > from a plain `git clone`: Maya tools vendored, all three servers boot under the
 > installer-built venv, and `python -m install.cli install maya|unreal|blender|all`
-> registers them in `~/.claude.json` (global or `--scope project`). 19 unit tests
-> green. Remaining: Phase 5 (point the MCA Editor back at this package via a shim),
-> Phase 6 (Unreal C++ bridge release channel), Phase 7 (PyPI publish). See the
-> 2026-07-02 session note.
+> registers them in `~/.claude.json` (global or `--scope project`). 20 unit tests
+> green. **Phase 5 is PREPPED** — the package is editor-consumable via
+> `mca_mcp.servers` (single-source registry) + `mca_mcp.common`, and the exact
+> shim is written in `docs/EDITOR_INTEGRATION.md`. The live editor is NOT yet
+> modified: it's gated on one decision (how the editor imports the unpublished
+> package) and a real-Maya validation pass. Remaining: apply Phase 5, Phase 6
+> (Unreal C++ bridge release channel), Phase 7 (PyPI publish). See the 2026-07-02
+> session note.
 
 ---
 

@@ -76,3 +76,18 @@ def test_installer_resolves_all_server_scripts():
     for dcc in _DCC_REGISTRY:
         path = _server_script_path(dcc)
         assert os.path.isfile(path), "server script for {} not found: {}".format(dcc, path)
+
+
+def test_shared_registry_is_single_source():
+    """install.cli resolves through mca_mcp.servers (one source of truth)."""
+    from mca_mcp import servers
+    import install.cli as cli
+
+    # The CLI's registry IS the package registry object, not a copy.
+    assert cli._DCC_REGISTRY is servers.SERVERS
+
+    # Every DCC resolves a real server file, and names are stable/expected.
+    expected = {"maya": "MCAMayaMCP", "unreal": "MCAUnrealMCP", "blender": "MCABlenderMCP"}
+    for dcc in servers.dcc_keys():
+        assert servers.server_name(dcc) == expected[dcc]
+        assert os.path.isfile(servers.server_script_path(dcc))

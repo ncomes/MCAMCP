@@ -115,6 +115,34 @@ Default **private** while WIP; flip public later.
 | 6 — Unreal C++ bridge → GitHub Releases | pending | `MCAEditorScripting` per-UE zips |
 | 7 — Docs + PyPI publish | pending | tag v0.1.0 |
 
+## Phase 5 prep (same session, package-side only)
+
+Did the **safe, decision-independent** half of Phase 5 without touching the live
+editor:
+
+- NEW `mca_mcp/servers.py` — single source of truth for the DCC registry
+  (registration names + server module paths) + `server_script_path()`. Lives
+  under `mca_mcp` so an embedding app (the editor) only needs `import mca_mcp`,
+  never the top-level `install` package. `install/cli.py` now aliases this
+  (`_DCC_REGISTRY = servers.SERVERS`) — one source, verified by a test.
+- NEW `docs/EDITOR_INTEGRATION.md` — the **exact ready-to-apply shim** for
+  `mca_core/mcp_setup.py`: delegates Maya + Unreal to the package, keeps the
+  editor-coupled `MCAEditorMCP` server local, preserves all 3 public signatures
+  so the 5 call sites (editor_panel:4020 + 4 adapters) stay unchanged.
+
+**Why the live editor was NOT modified:** MCAEditor (`E:\Projects\MCAEditor`, a
+git repo, files writable — no P4 lock) is a working production orchestrator whose
+final step can only be validated in a real Maya session (rebuild 3 Maya versions,
+confirm servers connect). Two things gate applying it:
+  1. **One decision** — how the editor's Python imports the *unpublished* package
+     (git URL after push = recommended / local editable now / submodule). Asked
+     Nathan; no answer yet, so I did not guess and rewire a live file.
+  2. **The GitHub push** — the clean dependency (git URL) needs the repo pushed
+     first (still blocked on `gh auth`).
+
+When Nathan picks the dependency mechanism, applying the shim is a ~15-min flip
+using §3–§4 of `docs/EDITOR_INTEGRATION.md`.
+
 ### Not addressed (intentionally)
 - `common/transport.py` / `common/schema.py` were in the original plan but the
   transport/quoting logic still lives inline in each server and works; leave it
