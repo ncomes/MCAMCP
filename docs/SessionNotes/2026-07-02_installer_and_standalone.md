@@ -175,9 +175,16 @@ So **Bot Town now dogfoods the package** (project scope overrides global for
 OrangeSlice), while the editor + every other project stay on the deployment —
 isolated and reversible. Takes effect on the next Claude Code restart. Backup:
 `~/.claude.json.bak-<epoch>`. Revert = delete the two OrangeSlice project entries.
-NOT verified against a live Unreal editor (none was running) — the server code is
-byte-identical to the deployment Bot Town already used, and the MCP handshake
-passed.
+
+**Bot Town confirmed working on the package (2026-07-02).** BOTH DCC servers it
+uses were driven live through the exact `~/.mca-mcp/venv` + package `server.py`
+that OrangeSlice's registration points at:
+- **Maya** — `list_objects_by_type cameras` against a running Maya → identical result.
+- **Unreal** — `get_project_info` against the running "Wayward" editor (UE 5.6.1)
+  → identical result to the deployment.
+
+The only thing a Claude Code restart changes is which registration OrangeSlice
+reads; that registration + server chain is verified. Bot Town is good to go.
 
 ### MCA Editor — still on its own deployment (Phase 5 not applied)
 
