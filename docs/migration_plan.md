@@ -1,9 +1,17 @@
 # MCP Extraction — Migration Plan
 
-**Date:** 2026-07-01
+**Date:** 2026-07-01 (updated 2026-07-02)
 **Goal:** Move the DCC MCP servers (Maya, Unreal, Blender) out of the MCA Editor
 repo into a standalone, shareable package (`mca-mcp`) that any project can install,
 while the editor keeps consuming them through a thin shim.
+
+> **Status (2026-07-02):** Phases 0–4 DONE. The package is standalone and usable
+> from a plain `git clone`: Maya tools vendored, all three servers boot under the
+> installer-built venv, and `python -m install.cli install maya|unreal|blender|all`
+> registers them in `~/.claude.json` (global or `--scope project`). 19 unit tests
+> green. Remaining: Phase 5 (point the MCA Editor back at this package via a shim),
+> Phase 6 (Unreal C++ bridge release channel), Phase 7 (PyPI publish). See the
+> 2026-07-02 session note.
 
 ---
 

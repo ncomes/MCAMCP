@@ -1120,13 +1120,22 @@ if __name__ == "__main__":
 
     # --- Tool Discovery -------------------------------------------------------
 
-    # The default tool directory is MayaMCP/src/mayatools/ relative to the
-    # deployment location.  Our server lives at:
-    #   mca_preferences/mcp_servers/mca_maya_server.py
-    # MayaMCP's tools live at:
+    # Resolve the Maya tool directory.  In the standalone package the patched
+    # MayaMCP tools are VENDORED alongside this server at:
+    #   mca_mcp/maya/mayatools/
+    # For backwards compatibility with the old editor deployment layout we also
+    # honor the legacy path:
     #   mca_preferences/mcp_servers/MayaMCP/src/mayatools/
+    # Prefer whichever exists (vendored first), so a single server file works in
+    # both the shareable package and any pre-existing editor deployment.
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    default_tool_dir = os.path.join(script_dir, "MayaMCP", "src", "mayatools")
+    vendored_tool_dir = os.path.join(script_dir, "mayatools")
+    legacy_tool_dir = os.path.join(script_dir, "MayaMCP", "src", "mayatools")
+
+    if os.path.isdir(vendored_tool_dir):
+        default_tool_dir = vendored_tool_dir
+    else:
+        default_tool_dir = legacy_tool_dir
 
     tool_dirs = [default_tool_dir]
 

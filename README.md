@@ -10,9 +10,13 @@ project can use the DCC servers independently.
 
 ## Status
 
-🚧 **Early extraction / work in progress.** The DCC server code and Unreal tools
-have been moved here; the shared `common/` module and the standalone installer
-CLI are being built out. See `docs/migration_plan.md` for the roadmap.
+✅ **Standalone and usable.** All three DCC servers run without the MCA Editor,
+Maya's tool set is vendored, and the `mca-mcp` installer registers the servers
+with Claude Code (global or per-project) from a plain `git clone`. Remaining
+work is the Unreal C++ bridge release channel and PyPI publishing — see
+`docs/migration_plan.md`.
+
+Tool counts: **Unreal 89**, **Maya 17** (vendored MayaMCP set), **Blender 14**.
 
 ---
 
@@ -29,17 +33,35 @@ tests/           # unit tests for the common layer
 docs/            # migration plan + design notes
 ```
 
-## Install (planned)
+## Install
+
+**From a git clone (no PyPI needed):**
+
+```bash
+git clone git@github.com:ncomes/MCAMCP.git
+cd MCAMCP
+
+# Build the shared MCP venv and register a server with Claude Code.
+python -m install.cli install maya            # or: unreal | blender | all
+python -m install.cli status
+python -m install.cli uninstall unreal
+```
+
+**As an installed package:**
 
 ```bash
 pip install mca-mcp            # core + all servers importable
 pip install "mca-mcp[maya]"    # Maya only
-pip install "mca-mcp[unreal]"  # Unreal only
 
-mca-mcp install maya           # deploy + register with Claude Code
+mca-mcp install all            # `mca-mcp` console script once pip-installed
 mca-mcp status
-mca-mcp uninstall unreal
 ```
+
+The installer builds one shared venv (default `~/.mca-mcp/venv`, override with
+`--venv` or `$MCA_MCP_VENV`) containing the `mcp` runtime, then registers each
+server in `~/.claude.json`. Use `--scope project [--project-dir DIR]` to scope a
+server to a single project instead of globally. Restart Claude Code (or reload
+MCP servers) afterward.
 
 ## Running a server directly
 
