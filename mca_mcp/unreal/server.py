@@ -30,9 +30,6 @@ Side effects:
 
 import argparse
 import asyncio
-import importlib
-import importlib.util
-import inspect
 import json
 import logging
 import os
@@ -40,16 +37,24 @@ import pprint as pprint_mod
 import socket
 import uuid
 from itertools import chain
-from typing import get_origin
 
 import mcp.server.stdio
 import pydantic_core
-from mcp.server.fastmcp.server import Context
-from mcp.server.fastmcp.utilities.func_metadata import func_metadata
 from mcp.server.fastmcp.utilities.types import Image
 from mcp.server.lowlevel import NotificationOptions, Server
 from mcp.server.models import InitializationOptions
 from mcp.types import EmbeddedResource, ImageContent, TextContent, Tool
+
+# --- Local Package ------------------------------------------------------------
+# Shared tool discovery lives in ``mca_mcp.common``.  Ensure the package root is
+# on ``sys.path`` so this server runs both as a module
+# (``python -m mca_mcp.unreal.server``) and as a direct script
+# (``python mca_mcp/unreal/server.py``).
+import sys
+_PKG_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if _PKG_ROOT not in sys.path:
+    sys.path.insert(0, _PKG_ROOT)
+from mca_mcp.common.discovery import OperationsManager
 
 # --- Constants ----------------------------------------------------------------
 
@@ -532,152 +537,6 @@ class UnrealConnection:
 
 
 # =============================================================================
-# Tool Discovery (OperationsManager)
-# =============================================================================
-
-class OperationsManager:
-    """
-    Discovers MCP tools from the ``unreal_tools/`` directory structure.
-
-    Identical to the Maya version: walks directories for ``.py`` files,
-    dynamically loads each module, inspects the function signature, and
-    builds MCP ``Tool`` objects with JSON schemas.
-    """
-
-    def __init__(self):
-        """Initialize empty tool and path registries."""
-        self._paths = {}
-        self._tools = {}
-
-    def has_tool(self, name):
-        """
-        Check if a tool is registered.
-
-        :param str name: Tool name.
-        :return: True if the tool exists.
-        :rtype: bool
-        """
-        return name in self._tools
-
-    def get_tool(self, name):
-        """
-        Get a Tool by name.
-
-        :param str name: Tool name.
-        :return: The Tool object, or None if not found.
-        :rtype: Tool or None
-        """
-        return self._tools.get(name)
-
-    def get_file_path(self, name):
-        """
-        Get the source file path for a tool.
-
-        :param str name: Tool name.
-        :return: Absolute path to the .py file, or None.
-        :rtype: str or None
-        """
-        return self._paths.get(name)
-
-    def get_tools(self):
-        """
-        Return all registered tools.
-
-        :return: Collection of Tool objects.
-        :rtype: list
-        """
-        return list(self._tools.values())
-
-    def find_tools(self, tool_dirs):
-        """
-        Walk one or more directories and register all valid tool files.
-
-        Each ``.py`` file must contain a function whose name matches the
-        filename (e.g. ``create_actor.py`` exports ``create_actor``).
-        Files in the ``SKIP_TOOLS`` set are silently ignored.
-
-        :param list tool_dirs: List of directory paths to scan.
-        """
-        for tool_dir in tool_dirs:
-            if not os.path.isdir(tool_dir):
-                logger.warning("Tool directory not found, skipping: %s", tool_dir)
-                continue
-
-            for root, dirs, files in os.walk(tool_dir):
-                for filename in files:
-                    if not filename.endswith(".py"):
-                        continue
-
-                    name = os.path.splitext(filename)[0]
-
-                    # Skip known-bad tools.
-                    if name in SKIP_TOOLS:
-                        logger.debug("Skipping tool '%s' (in skip list)", name)
-                        continue
-
-                    path = os.path.join(root, filename)
-                    tool = self._load_tool(name, path)
-
-                    if tool:
-                        self._paths[name] = path
-                        self._tools[name] = tool
-                        logger.debug("Registered tool: %s", name)
-
-        logger.info("Discovered %d tools from %d directories.",
-                     len(self._tools), len(tool_dirs))
-
-    def _load_tool(self, name, filepath):
-        """
-        Load a single tool file and build an MCP Tool from its function signature.
-
-        :param str name: Expected function name (matches filename stem).
-        :param str filepath: Absolute path to the .py file.
-        :return: MCP Tool object, or None on failure.
-        :rtype: Tool or None
-        """
-        try:
-            spec = importlib.util.spec_from_file_location(name, filepath)
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-            fn = getattr(module, name)
-        except Exception as exc:
-            logger.warning("Failed to load tool '%s' from %s: %s", name, filepath, exc)
-            return None
-
-        func_doc = fn.__doc__ or ""
-
-        # Inspect signature for MCP Context parameter (skip it in schema).
-        sig = inspect.signature(fn)
-        context_kwarg = None
-        for param_name, param in sig.parameters.items():
-            if get_origin(param.annotation) is not None:
-                continue
-            try:
-                if issubclass(param.annotation, Context):
-                    context_kwarg = param_name
-                    break
-            except TypeError:
-                continue
-
-        # Build pydantic-based JSON schema from function signature.
-        try:
-            func_arg_metadata = func_metadata(
-                fn,
-                skip_names=[context_kwarg] if context_kwarg is not None else [],
-            )
-            parameters = func_arg_metadata.arg_model.model_json_schema()
-        except Exception as exc:
-            logger.warning("Failed to extract schema for tool '%s': %s", name, exc)
-            return None
-
-        return Tool(
-            name=name,
-            description=func_doc,
-            inputSchema=parameters,
-        )
-
-
-# =============================================================================
 # Script Building
 # =============================================================================
 
@@ -1131,8 +990,10 @@ if __name__ == "__main__":
     if args.tool_dir:
         tool_dirs.extend(args.tool_dir)
 
+    # SKIP_TOOLS is passed explicitly now that discovery lives in the shared
+    # common module (it no longer reads this server's module globals).
     _operation_manager = OperationsManager()
-    _operation_manager.find_tools(tool_dirs)
+    _operation_manager.find_tools(tool_dirs, skip_tools=SKIP_TOOLS)
 
     logger.info("Tool discovery complete.  Starting MCP stdio server...")
 
