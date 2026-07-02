@@ -182,10 +182,28 @@ passed.
 ### MCA Editor — still on its own deployment (Phase 5 not applied)
 
 The editor is unchanged and working. Cutting it over to the package is Phase 5
-(`docs/EDITOR_INTEGRATION.md`), now unblocked by the push: the editor's venv can
-depend on `mca-mcp @ git+https://github.com/ncomes/MCAMCP.git`. Applying it needs
-a real Maya session to validate (rebuild 2024/25/26, confirm all three servers
-connect) — deferred to a session where Maya can be driven.
+(`docs/EDITOR_INTEGRATION.md`), now unblocked by the push.
+
+**Proven against LIVE Maya (2026-07-02):** with Maya running, the package's Maya
+server (under `~/.mca-mcp/venv`) completed an MCP handshake AND executed a real
+tool (`list_objects_by_type cameras`) against it, returning the same result as
+the deployment. So the extracted server is production-equivalent — the only
+unproven part of Phase 5 is the editor *wiring*, not the server.
+
+**Why the shim was NOT applied this session:** MCAEditor `main` had ~29 files of
+unrelated uncommitted WIP (17 new / 11 modified / 1 deleted — possibly a
+concurrent session). `mcp_setup.py` + `venv_manager.py` themselves were clean, but
+I will not branch/commit Phase 5 into a dirty tree and risk entangling that work.
+Also, the editor is a built Maya plugin — applying the shim can't be validated
+without a rebuild + Maya restart (Nathan's step) regardless.
+
+**Ready-to-apply state:** the full 152-line shim in `EDITOR_INTEGRATION.md`
+compiles clean, uses lazy `mca_mcp` imports (a missing package never blocks the
+editor), shares the one `~/.mca-mcp/venv` via `default_venv_dir()`, keeps the
+`MCAEditorMCP` server running from its local source, and preserves all 3 public
+signatures. Recommended dependency for this machine (private repo): local path
+`"E:/Projects/MCAMCP": "mca_mcp"` in `venv_manager.REQUIRED_PACKAGES`. Apply on a
+clean tree, on a branch — see the §4 checklist.
 
 ### Not addressed (intentionally)
 - `common/transport.py` / `common/schema.py` were in the original plan but the
