@@ -61,12 +61,10 @@ from mca_mcp.common import venv as venv_helpers
 # Aliased here under the historical name used throughout this module.
 _DCC_REGISTRY = server_registry.SERVERS
 
-# Default location for the shared MCP venv.  Overridable via ``--venv`` or the
-# ``MCA_MCP_VENV`` environment variable so the editor shim can point it at the
-# old ``mca_preferences`` location later.
-_DEFAULT_VENV = os.environ.get(
-    "MCA_MCP_VENV", os.path.join(os.path.expanduser("~"), ".mca-mcp", "venv")
-)
+# Default location for the shared MCP venv (``~/.mca-mcp/venv``, overridable via
+# ``--venv`` or ``MCA_MCP_VENV``).  Resolved by the package so the CLI, the Bot
+# Town registration, and the MCA Editor shim all share one venv.
+_DEFAULT_VENV = venv_helpers.default_venv_dir()
 
 logger = logging.getLogger("mca_mcp.install")
 

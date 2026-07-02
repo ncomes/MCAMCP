@@ -121,6 +121,24 @@ def _resolve_python_executable(cmd):
     return exe_path
 
 
+def default_venv_dir():
+    """
+    Return the shared MCP venv directory used across the machine.
+
+    One venv is reused by the standalone installer, the Bot Town project
+    registration, and the MCA Editor shim, so every MCP server on the machine
+    runs from the same interpreter.  Overridable with ``MCA_MCP_VENV``.
+
+    :return: Absolute path to the shared venv directory.
+    :rtype: str
+    """
+    import os as _os
+
+    return _os.environ.get(
+        "MCA_MCP_VENV", _os.path.join(_os.path.expanduser("~"), ".mca-mcp", "venv")
+    )
+
+
 def venv_python(venv_dir):
     """
     Return the path to the Python executable inside a venv directory.
