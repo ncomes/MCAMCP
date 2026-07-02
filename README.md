@@ -1,0 +1,63 @@
+# MCA MCP
+
+Model Context Protocol (MCP) servers that let AI assistants — Claude Code and
+any other MCP client — drive **Maya**, **Unreal Engine**, and **Blender**.
+
+Extracted from the [MCA Editor](https://github.com/ncomes/MCAEditor) so any
+project can use the DCC servers independently.
+
+---
+
+## Status
+
+🚧 **Early extraction / work in progress.** The DCC server code and Unreal tools
+have been moved here; the shared `common/` module and the standalone installer
+CLI are being built out. See `docs/migration_plan.md` for the roadmap.
+
+---
+
+## Layout
+
+```
+mca_mcp/
+  common/        # shared discovery, transport, schema, Claude Code registration
+  maya/          # Maya server  (builds on MayaMCP's tool set)
+  unreal/        # Unreal server + unreal_tools/  (89 tools)
+  blender/       # Blender server (tools defined inline)
+install/         # `mca-mcp install|status|uninstall` CLI
+tests/           # unit tests for the common layer
+docs/            # migration plan + design notes
+```
+
+## Install (planned)
+
+```bash
+pip install mca-mcp            # core + all servers importable
+pip install "mca-mcp[maya]"    # Maya only
+pip install "mca-mcp[unreal]"  # Unreal only
+
+mca-mcp install maya           # deploy + register with Claude Code
+mca-mcp status
+mca-mcp uninstall unreal
+```
+
+## Running a server directly
+
+```bash
+python -m mca_mcp.unreal.server --tool-dir mca_mcp/unreal/unreal_tools
+python -m mca_mcp.maya.server
+python -m mca_mcp.blender.server
+```
+
+## DCC bridges
+
+- **Maya** — uses [PatrickPalmer/MayaMCP](https://github.com/PatrickPalmer/MayaMCP)
+  tool set (MIT). The patched `mayatools/` are vendored under `mca_mcp/maya/`.
+- **Unreal** — requires the `MCAEditorScripting` C++ bridge plugin, distributed
+  separately as prebuilt `.uplugin` releases per UE version. The Python
+  `unreal_tools/` ship in this package.
+- **Blender** — talks to Blender over a socket; no compiled bridge.
+
+## License
+
+MIT. Maya tool set derives from MayaMCP (MIT) — see `LICENSE` and attribution.

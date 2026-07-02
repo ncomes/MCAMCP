@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mca-mcp"
+version = "0.1.0"
+description = "Model Context Protocol servers for Maya, Unreal Engine, and Blender."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Nathan Comes" }]
+keywords = ["mcp", "maya", "unreal", "blender", "dcc", "claude", "tech-art"]
+
+# Core runtime dependency shared by every server.  DCC-specific extras below
+# let a user install only what they need (e.g. `pip install mca-mcp[maya]`).
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.optional-dependencies]
+# Each extra is currently a no-op placeholder for DCC-specific pip deps.  They
+# exist so install targets and docs can reference them today; add real deps as
+# needed.  `all` pulls everything for a full workstation install.
+maya = []
+unreal = []
+blender = []
+all = ["mca-mcp[maya]", "mca-mcp[unreal]", "mca-mcp[blender]"]
+
+[project.scripts]
+# `mca-mcp install maya|unreal|blender|all`, `mca-mcp status`, `mca-mcp uninstall`.
+mca-mcp = "install.cli:main"
+
+[tool.setuptools.packages.find]
+# Ship the package and the installer; tests and docs stay out of the wheel.
+include = ["mca_mcp*", "install*"]
+
+[tool.setuptools.package-data]
+# Tool source files are data, not importable modules — they are discovered and
+# imported dynamically at runtime, so they must be packaged explicitly.
+"mca_mcp.unreal" = ["unreal_tools/**/*.py"]
+"mca_mcp.maya" = ["mayatools/**/*.py"]

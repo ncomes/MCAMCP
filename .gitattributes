@@ -1,0 +1,9 @@
+# Normalize line endings across platforms.  Python source and text files are
+# stored as LF in the repo; Git converts on checkout per the user's core.autocrlf.
+* text=auto eol=lf
+
+# Treat these as binary so Git never munges them.
+*.png binary
+*.jpg binary
+*.zip binary
+*.uplugin binary
