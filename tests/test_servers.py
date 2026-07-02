@@ -20,6 +20,9 @@ import asyncio
 import os
 import sys
 
+# third-party
+import pytest
+
 # Ensure the package root is importable when pytest is launched from anywhere.
 _PKG_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _PKG_ROOT not in sys.path:
@@ -76,6 +79,36 @@ def test_installer_resolves_all_server_scripts():
     for dcc in _DCC_REGISTRY:
         path = _server_script_path(dcc)
         assert os.path.isfile(path), "server script for {} not found: {}".format(dcc, path)
+
+
+@pytest.mark.parametrize("dcc", ["maya", "unreal", "blender"])
+def test_server_speaks_mcp_over_stdio(dcc):
+    """Each server boots as a real MCP process and answers initialize+list_tools.
+
+    This is the end-to-end check Claude Code performs: launch ``server.py`` with
+    a Python interpreter and complete the MCP handshake.  A plain import test is
+    NOT enough — it would miss a NameError in ``main()`` (e.g. the Blender server
+    referencing ``mcp.server.stdio`` without importing it at module scope), which
+    only surfaces once the stdio server actually runs.
+    """
+    from mca_mcp import servers
+
+    # The mcp client is required to drive the handshake; skip cleanly if absent.
+    stdio = pytest.importorskip("mcp.client.stdio")
+    from mcp.client.session import ClientSession
+
+    script = servers.server_script_path(dcc)
+
+    async def _handshake():
+        params = stdio.StdioServerParameters(command=sys.executable, args=[script])
+        async with stdio.stdio_client(params) as (read, write):
+            async with ClientSession(read, write) as session:
+                await session.initialize()
+                result = await session.list_tools()
+                return result.tools
+
+    tools = asyncio.run(asyncio.wait_for(_handshake(), timeout=60))
+    assert len(tools) >= 10, "{} server listed too few tools: {}".format(dcc, len(tools))
 
 
 def test_shared_registry_is_single_source():

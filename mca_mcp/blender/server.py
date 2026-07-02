@@ -30,6 +30,14 @@ import socket
 import struct
 import sys
 
+# The stdio transport + init/notification option types are used by ``main()``.
+# They must be importable at module scope (``_create_server`` also imports the
+# server/type classes locally); without these the server crashes at startup
+# with a NameError before it can speak MCP.
+import mcp.server.stdio
+from mcp.server.lowlevel import NotificationOptions
+from mcp.server.models import InitializationOptions
+
 # --- Constants ----------------------------------------------------------------
 
 __version__ = "1.0.0"

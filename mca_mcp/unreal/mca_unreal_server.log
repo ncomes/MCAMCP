@@ -1,0 +1,300 @@
+2026-07-02 13:13:17,935 - MCAUnrealMCP - INFO - [server.py:974] - MCA Unreal MCP Server v1.1.0 starting up
+2026-07-02 13:13:17,935 - MCAUnrealMCP - INFO - [server.py:975] - UE discovery: UDP multicast 239.0.0.1:6766
+2026-07-02 13:13:17,937 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_actor
+2026-07-02 13:13:17,938 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: delete_actors
+2026-07-02 13:13:17,938 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_actor_properties
+2026-07-02 13:13:17,939 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_selected_actors
+2026-07-02 13:13:17,939 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: select_actors
+2026-07-02 13:13:17,942 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_actor_property
+2026-07-02 13:13:17,943 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_actor_transform
+2026-07-02 13:13:17,945 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_notify
+2026-07-02 13:13:17,945 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_state
+2026-07-02 13:13:17,947 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_state_machine
+2026-07-02 13:13:17,947 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_transition
+2026-07-02 13:13:17,948 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_compile
+2026-07-02 13:13:17,949 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_create_blueprint
+2026-07-02 13:13:17,950 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_notifies
+2026-07-02 13:13:17,950 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_states
+2026-07-02 13:13:17,951 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_state_machines
+2026-07-02 13:13:17,952 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_transitions
+2026-07-02 13:13:17,953 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_auto_transition_rule
+2026-07-02 13:13:17,954 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_default_state
+2026-07-02 13:13:17,955 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_state_animation
+2026-07-02 13:13:17,957 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_transition_bool_condition
+2026-07-02 13:13:17,958 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_asset_info
+2026-07-02 13:13:17,960 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: import_asset
+2026-07-02 13:13:17,960 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_assets
+2026-07-02 13:13:17,962 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_blueprint_component
+2026-07-02 13:13:17,963 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_cast_node
+2026-07-02 13:13:17,963 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_event_node
+2026-07-02 13:13:17,965 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_function_call_node
+2026-07-02 13:13:17,966 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_interface_function
+2026-07-02 13:13:17,967 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_interface_message_node
+2026-07-02 13:13:17,968 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_member_variable
+2026-07-02 13:13:17,969 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_self_node
+2026-07-02 13:13:17,969 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_variable_get_node
+2026-07-02 13:13:17,970 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_variable_set_node
+2026-07-02 13:13:17,971 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_break_pin_links
+2026-07-02 13:13:17,972 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_connect_pins
+2026-07-02 13:13:17,972 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_create_interface
+2026-07-02 13:13:17,973 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_get_node_pins
+2026-07-02 13:13:17,973 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_event_graph_nodes
+2026-07-02 13:13:17,975 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_member_variables
+2026-07-02 13:13:17,975 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_named_graphs
+2026-07-02 13:13:17,976 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_remove_node
+2026-07-02 13:13:17,977 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_node_position
+2026-07-02 13:13:17,977 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_pin_default_object
+2026-07-02 13:13:17,978 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_pin_default_value
+2026-07-02 13:13:17,978 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: compile_blueprint
+2026-07-02 13:13:17,980 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_blueprint
+2026-07-02 13:13:17,980 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_blueprint_info
+2026-07-02 13:13:17,982 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_class_defaults
+2026-07-02 13:13:17,982 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprints
+2026-07-02 13:13:17,983 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_components
+2026-07-02 13:13:17,983 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_events
+2026-07-02 13:13:17,985 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_functions
+2026-07-02 13:13:17,986 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_variables
+2026-07-02 13:13:17,987 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_blueprint_variable
+2026-07-02 13:13:17,988 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_class_default
+2026-07-02 13:13:17,989 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_control
+2026-07-02 13:13:17,990 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_null
+2026-07-02 13:13:17,990 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_control_rig_info
+2026-07-02 13:13:17,992 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_control_transform
+2026-07-02 13:13:17,993 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_bones
+2026-07-02 13:13:17,993 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_controls
+2026-07-02 13:13:17,995 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_control_rigs
+2026-07-02 13:13:17,996 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_control_shape
+2026-07-02 13:13:17,997 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_control_transform
+2026-07-02 13:13:17,998 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: execute_python
+2026-07-02 13:13:17,998 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_python_output
+2026-07-02 13:13:17,999 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_level_info
+2026-07-02 13:13:18,000 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_new
+2026-07-02 13:13:18,000 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_open
+2026-07-02 13:13:18,001 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_save
+2026-07-02 13:13:18,002 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: assign_material
+2026-07-02 13:13:18,003 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_material
+2026-07-02 13:13:18,004 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_material_parameter
+2026-07-02 13:13:18,004 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_is_playing
+2026-07-02 13:13:18,005 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_play
+2026-07-02 13:13:18,005 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_stop
+2026-07-02 13:13:18,005 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_project_info
+2026-07-02 13:13:18,005 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_objects_by_type
+2026-07-02 13:13:18,008 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_class_hierarchy
+2026-07-02 13:13:18,008 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_subsystem
+2026-07-02 13:13:18,008 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: inspect_class
+2026-07-02 13:13:18,010 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_enums
+2026-07-02 13:13:18,010 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_modules
+2026-07-02 13:13:18,011 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: search_api
+2026-07-02 13:13:18,012 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_viewport_camera
+2026-07-02 13:13:18,012 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: take_screenshot
+2026-07-02 13:13:18,013 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: viewport_capture
+2026-07-02 13:13:18,014 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: viewport_focus
+2026-07-02 13:13:18,014 - mca_mcp.common.discovery - INFO - [discovery.py:147] - Discovered 89 tools from 1 directories.
+2026-07-02 13:13:18,014 - MCAUnrealMCP - INFO - [server.py:998] - Tool discovery complete.  Starting MCP stdio server...
+2026-07-02 13:13:18,014 - asyncio - DEBUG - [proactor_events.py:626] - Using proactor: IocpProactor
+2026-07-02 13:13:18,021 - mcp.server.lowlevel.server - DEBUG - [server.py:682] - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-07-02 13:13:18,022 - mcp.server.lowlevel.server - DEBUG - [server.py:682] - Received message: <mcp.shared.session.RequestResponder object at 0x000002A84C2914B0>
+2026-07-02 13:13:18,022 - mcp.server.lowlevel.server - INFO - [server.py:733] - Processing request of type ListToolsRequest
+2026-07-02 13:13:18,022 - mcp.server.lowlevel.server - DEBUG - [server.py:736] - Dispatching request of type ListToolsRequest
+2026-07-02 13:13:18,022 - MCAUnrealMCP - INFO - [server.py:835] - Client requested tool list (89 discovered + 2 native).
+2026-07-02 13:13:18,022 - mcp.server.lowlevel.server - DEBUG - [server.py:817] - Response sent
+2026-07-02 13:14:48,107 - MCAUnrealMCP - INFO - [server.py:974] - MCA Unreal MCP Server v1.1.0 starting up
+2026-07-02 13:14:48,107 - MCAUnrealMCP - INFO - [server.py:975] - UE discovery: UDP multicast 239.0.0.1:6766
+2026-07-02 13:14:48,108 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_actor
+2026-07-02 13:14:48,109 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: delete_actors
+2026-07-02 13:14:48,110 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_actor_properties
+2026-07-02 13:14:48,111 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_selected_actors
+2026-07-02 13:14:48,112 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: select_actors
+2026-07-02 13:14:48,113 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_actor_property
+2026-07-02 13:14:48,114 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_actor_transform
+2026-07-02 13:14:48,115 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_notify
+2026-07-02 13:14:48,117 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_state
+2026-07-02 13:14:48,118 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_state_machine
+2026-07-02 13:14:48,119 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_transition
+2026-07-02 13:14:48,120 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_compile
+2026-07-02 13:14:48,121 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_create_blueprint
+2026-07-02 13:14:48,122 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_notifies
+2026-07-02 13:14:48,122 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_states
+2026-07-02 13:14:48,123 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_state_machines
+2026-07-02 13:14:48,124 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_transitions
+2026-07-02 13:14:48,125 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_auto_transition_rule
+2026-07-02 13:14:48,126 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_default_state
+2026-07-02 13:14:48,127 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_state_animation
+2026-07-02 13:14:48,128 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_transition_bool_condition
+2026-07-02 13:14:48,129 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_asset_info
+2026-07-02 13:14:48,129 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: import_asset
+2026-07-02 13:14:48,131 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_assets
+2026-07-02 13:14:48,132 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_blueprint_component
+2026-07-02 13:14:48,133 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_cast_node
+2026-07-02 13:14:48,134 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_event_node
+2026-07-02 13:14:48,135 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_function_call_node
+2026-07-02 13:14:48,136 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_interface_function
+2026-07-02 13:14:48,137 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_interface_message_node
+2026-07-02 13:14:48,138 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_member_variable
+2026-07-02 13:14:48,139 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_self_node
+2026-07-02 13:14:48,140 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_variable_get_node
+2026-07-02 13:14:48,140 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_variable_set_node
+2026-07-02 13:14:48,141 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_break_pin_links
+2026-07-02 13:14:48,142 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_connect_pins
+2026-07-02 13:14:48,143 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_create_interface
+2026-07-02 13:14:48,143 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_get_node_pins
+2026-07-02 13:14:48,145 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_event_graph_nodes
+2026-07-02 13:14:48,145 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_member_variables
+2026-07-02 13:14:48,147 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_named_graphs
+2026-07-02 13:14:48,147 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_remove_node
+2026-07-02 13:14:48,148 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_node_position
+2026-07-02 13:14:48,149 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_pin_default_object
+2026-07-02 13:14:48,150 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_pin_default_value
+2026-07-02 13:14:48,150 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: compile_blueprint
+2026-07-02 13:14:48,151 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_blueprint
+2026-07-02 13:14:48,152 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_blueprint_info
+2026-07-02 13:14:48,153 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_class_defaults
+2026-07-02 13:14:48,153 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprints
+2026-07-02 13:14:48,154 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_components
+2026-07-02 13:14:48,156 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_events
+2026-07-02 13:14:48,157 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_functions
+2026-07-02 13:14:48,157 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_variables
+2026-07-02 13:14:48,158 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_blueprint_variable
+2026-07-02 13:14:48,160 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_class_default
+2026-07-02 13:14:48,161 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_control
+2026-07-02 13:14:48,162 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_null
+2026-07-02 13:14:48,163 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_control_rig_info
+2026-07-02 13:14:48,163 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_control_transform
+2026-07-02 13:14:48,164 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_bones
+2026-07-02 13:14:48,165 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_controls
+2026-07-02 13:14:48,166 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_control_rigs
+2026-07-02 13:14:48,167 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_control_shape
+2026-07-02 13:14:48,168 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_control_transform
+2026-07-02 13:14:48,169 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: execute_python
+2026-07-02 13:14:48,169 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_python_output
+2026-07-02 13:14:48,170 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_level_info
+2026-07-02 13:14:48,171 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_new
+2026-07-02 13:14:48,171 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_open
+2026-07-02 13:14:48,172 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_save
+2026-07-02 13:14:48,173 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: assign_material
+2026-07-02 13:14:48,174 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_material
+2026-07-02 13:14:48,175 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_material_parameter
+2026-07-02 13:14:48,175 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_is_playing
+2026-07-02 13:14:48,176 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_play
+2026-07-02 13:14:48,177 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_stop
+2026-07-02 13:14:48,177 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_project_info
+2026-07-02 13:14:48,177 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_objects_by_type
+2026-07-02 13:14:48,179 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_class_hierarchy
+2026-07-02 13:14:48,180 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_subsystem
+2026-07-02 13:14:48,180 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: inspect_class
+2026-07-02 13:14:48,181 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_enums
+2026-07-02 13:14:48,182 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_modules
+2026-07-02 13:14:48,183 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: search_api
+2026-07-02 13:14:48,184 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_viewport_camera
+2026-07-02 13:14:48,184 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: take_screenshot
+2026-07-02 13:14:48,185 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: viewport_capture
+2026-07-02 13:14:48,186 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: viewport_focus
+2026-07-02 13:14:48,186 - mca_mcp.common.discovery - INFO - [discovery.py:147] - Discovered 89 tools from 1 directories.
+2026-07-02 13:14:48,186 - MCAUnrealMCP - INFO - [server.py:998] - Tool discovery complete.  Starting MCP stdio server...
+2026-07-02 13:14:48,186 - asyncio - DEBUG - [proactor_events.py:626] - Using proactor: IocpProactor
+2026-07-02 13:14:48,194 - mcp.server.lowlevel.server - DEBUG - [server.py:682] - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-07-02 13:14:48,194 - mcp.server.lowlevel.server - DEBUG - [server.py:682] - Received message: <mcp.shared.session.RequestResponder object at 0x00000168CA3ED750>
+2026-07-02 13:14:48,194 - mcp.server.lowlevel.server - INFO - [server.py:733] - Processing request of type ListToolsRequest
+2026-07-02 13:14:48,194 - mcp.server.lowlevel.server - DEBUG - [server.py:736] - Dispatching request of type ListToolsRequest
+2026-07-02 13:14:48,194 - MCAUnrealMCP - INFO - [server.py:835] - Client requested tool list (89 discovered + 2 native).
+2026-07-02 13:14:48,194 - mcp.server.lowlevel.server - DEBUG - [server.py:817] - Response sent
+2026-07-02 13:15:01,596 - MCAUnrealMCP - INFO - [server.py:974] - MCA Unreal MCP Server v1.1.0 starting up
+2026-07-02 13:15:01,596 - MCAUnrealMCP - INFO - [server.py:975] - UE discovery: UDP multicast 239.0.0.1:6766
+2026-07-02 13:15:01,597 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_actor
+2026-07-02 13:15:01,598 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: delete_actors
+2026-07-02 13:15:01,598 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_actor_properties
+2026-07-02 13:15:01,599 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_selected_actors
+2026-07-02 13:15:01,599 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: select_actors
+2026-07-02 13:15:01,601 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_actor_property
+2026-07-02 13:15:01,602 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_actor_transform
+2026-07-02 13:15:01,603 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_notify
+2026-07-02 13:15:01,603 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_state
+2026-07-02 13:15:01,604 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_state_machine
+2026-07-02 13:15:01,605 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_add_transition
+2026-07-02 13:15:01,605 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_compile
+2026-07-02 13:15:01,606 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_create_blueprint
+2026-07-02 13:15:01,607 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_notifies
+2026-07-02 13:15:01,607 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_states
+2026-07-02 13:15:01,608 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_state_machines
+2026-07-02 13:15:01,609 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_list_transitions
+2026-07-02 13:15:01,610 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_auto_transition_rule
+2026-07-02 13:15:01,610 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_default_state
+2026-07-02 13:15:01,612 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_state_animation
+2026-07-02 13:15:01,613 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: anim_set_transition_bool_condition
+2026-07-02 13:15:01,613 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_asset_info
+2026-07-02 13:15:01,614 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: import_asset
+2026-07-02 13:15:01,615 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_assets
+2026-07-02 13:15:01,616 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_blueprint_component
+2026-07-02 13:15:01,617 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_cast_node
+2026-07-02 13:15:01,617 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_event_node
+2026-07-02 13:15:01,618 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_function_call_node
+2026-07-02 13:15:01,619 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_interface_function
+2026-07-02 13:15:01,621 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_interface_message_node
+2026-07-02 13:15:01,622 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_member_variable
+2026-07-02 13:15:01,623 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_self_node
+2026-07-02 13:15:01,625 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_variable_get_node
+2026-07-02 13:15:01,626 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_add_variable_set_node
+2026-07-02 13:15:01,627 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_break_pin_links
+2026-07-02 13:15:01,628 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_connect_pins
+2026-07-02 13:15:01,629 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_create_interface
+2026-07-02 13:15:01,630 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_get_node_pins
+2026-07-02 13:15:01,631 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_event_graph_nodes
+2026-07-02 13:15:01,631 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_member_variables
+2026-07-02 13:15:01,631 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_list_named_graphs
+2026-07-02 13:15:01,631 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_remove_node
+2026-07-02 13:15:01,633 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_node_position
+2026-07-02 13:15:01,634 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_pin_default_object
+2026-07-02 13:15:01,634 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: bp_set_pin_default_value
+2026-07-02 13:15:01,636 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: compile_blueprint
+2026-07-02 13:15:01,636 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_blueprint
+2026-07-02 13:15:01,637 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_blueprint_info
+2026-07-02 13:15:01,637 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_class_defaults
+2026-07-02 13:15:01,639 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprints
+2026-07-02 13:15:01,640 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_components
+2026-07-02 13:15:01,641 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_events
+2026-07-02 13:15:01,641 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_functions
+2026-07-02 13:15:01,642 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_blueprint_variables
+2026-07-02 13:15:01,643 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_blueprint_variable
+2026-07-02 13:15:01,643 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_class_default
+2026-07-02 13:15:01,645 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_control
+2026-07-02 13:15:01,646 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: add_null
+2026-07-02 13:15:01,647 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_control_rig_info
+2026-07-02 13:15:01,647 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_control_transform
+2026-07-02 13:15:01,648 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_bones
+2026-07-02 13:15:01,649 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_controls
+2026-07-02 13:15:01,649 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_control_rigs
+2026-07-02 13:15:01,651 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_control_shape
+2026-07-02 13:15:01,653 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_control_transform
+2026-07-02 13:15:01,653 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: execute_python
+2026-07-02 13:15:01,653 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_python_output
+2026-07-02 13:15:01,655 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_level_info
+2026-07-02 13:15:01,656 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_new
+2026-07-02 13:15:01,657 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_open
+2026-07-02 13:15:01,657 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: level_save
+2026-07-02 13:15:01,659 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: assign_material
+2026-07-02 13:15:01,659 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: create_material
+2026-07-02 13:15:01,660 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_material_parameter
+2026-07-02 13:15:01,660 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_is_playing
+2026-07-02 13:15:01,661 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_play
+2026-07-02 13:15:01,662 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: pie_stop
+2026-07-02 13:15:01,662 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_project_info
+2026-07-02 13:15:01,663 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_objects_by_type
+2026-07-02 13:15:01,664 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_class_hierarchy
+2026-07-02 13:15:01,664 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: get_subsystem
+2026-07-02 13:15:01,665 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: inspect_class
+2026-07-02 13:15:01,665 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_enums
+2026-07-02 13:15:01,667 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: list_modules
+2026-07-02 13:15:01,668 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: search_api
+2026-07-02 13:15:01,668 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: set_viewport_camera
+2026-07-02 13:15:01,669 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: take_screenshot
+2026-07-02 13:15:01,670 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: viewport_capture
+2026-07-02 13:15:01,671 - mca_mcp.common.discovery - DEBUG - [discovery.py:145] - Registered tool: viewport_focus
+2026-07-02 13:15:01,671 - mca_mcp.common.discovery - INFO - [discovery.py:147] - Discovered 89 tools from 1 directories.
+2026-07-02 13:15:01,671 - MCAUnrealMCP - INFO - [server.py:998] - Tool discovery complete.  Starting MCP stdio server...
+2026-07-02 13:15:01,671 - asyncio - DEBUG - [proactor_events.py:626] - Using proactor: IocpProactor
+2026-07-02 13:15:01,680 - mcp.server.lowlevel.server - DEBUG - [server.py:682] - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-07-02 13:15:01,680 - mcp.server.lowlevel.server - DEBUG - [server.py:682] - Received message: <mcp.shared.session.RequestResponder object at 0x000001EAC8A5D720>
+2026-07-02 13:15:01,680 - mcp.server.lowlevel.server - INFO - [server.py:733] - Processing request of type ListToolsRequest
+2026-07-02 13:15:01,681 - mcp.server.lowlevel.server - DEBUG - [server.py:736] - Dispatching request of type ListToolsRequest
+2026-07-02 13:15:01,681 - MCAUnrealMCP - INFO - [server.py:835] - Client requested tool list (89 discovered + 2 native).
+2026-07-02 13:15:01,681 - mcp.server.lowlevel.server - DEBUG - [server.py:817] - Response sent
