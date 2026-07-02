@@ -25,6 +25,9 @@ env/
 .DS_Store
 Thumbs.db
 
+# Server runtime logs (written next to server.py when a server is launched)
+*.log
+
 # Test / coverage
 .pytest_cache/
 .coverage
