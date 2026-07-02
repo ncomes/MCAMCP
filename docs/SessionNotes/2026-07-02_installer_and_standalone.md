@@ -143,6 +143,50 @@ confirm servers connect). Two things gate applying it:
 When Nathan picks the dependency mechanism, applying the shim is a ~15-min flip
 using §3–§4 of `docs/EDITOR_INTEGRATION.md`.
 
+## Published to GitHub + Bot Town cutover (later same session)
+
+- **Pushed** to https://github.com/ncomes/MCAMCP. Nathan pre-created the repo with
+  an MIT `LICENSE` stub ("Initial commit"). Rebased the 5 local commits onto it
+  (resolved the add/add LICENSE conflict in favor of the local one — it carries
+  Nathan's name + the required MayaMCP attribution). Linear history, root commit
+  preserved.
+- **Real MCP handshake proof** (not just import): launched each `server.py` under
+  the installer venv (`~/.mca-mcp/venv`) via an `mcp` stdio client and ran
+  `initialize` + `list_tools`. Results: **unreal 91, maya 17, blender 14**.
+- **Fixed a real pre-existing bug** the handshake exposed: the Blender server's
+  `main()` referenced `mcp.server.stdio` / `InitializationOptions` /
+  `NotificationOptions` that were only imported inside `_create_server`, so it
+  crashed at startup with `NameError` and never spoke MCP. Import-only tests
+  missed it. Fixed by importing them at module scope (as Maya/Unreal do). Added a
+  parametrized `test_server_speaks_mcp_over_stdio[maya|unreal|blender]` regression
+  test that does the full handshake — 23 tests green.
+- Stopped tracking the `*.log` files the servers write next to `server.py`
+  (gitignored).
+
+### Live registration state after this session (`~/.claude.json`, backed up first)
+
+| Scope | Servers | Points at |
+|---|---|---|
+| **global** | MCAMayaMCP, MCAUnrealMCP, MCAEditorMCP | editor deployment (UNCHANGED) |
+| **project E:/Projects/MCAEditor** | same three | editor deployment (UNCHANGED) |
+| **project E:/Projects/OrangeSlice** | MCAUnrealMCP, MCAMayaMCP | **the package** (`E:/Projects/MCAMCP`) via `~/.mca-mcp/venv` |
+
+So **Bot Town now dogfoods the package** (project scope overrides global for
+OrangeSlice), while the editor + every other project stay on the deployment —
+isolated and reversible. Takes effect on the next Claude Code restart. Backup:
+`~/.claude.json.bak-<epoch>`. Revert = delete the two OrangeSlice project entries.
+NOT verified against a live Unreal editor (none was running) — the server code is
+byte-identical to the deployment Bot Town already used, and the MCP handshake
+passed.
+
+### MCA Editor — still on its own deployment (Phase 5 not applied)
+
+The editor is unchanged and working. Cutting it over to the package is Phase 5
+(`docs/EDITOR_INTEGRATION.md`), now unblocked by the push: the editor's venv can
+depend on `mca-mcp @ git+https://github.com/ncomes/MCAMCP.git`. Applying it needs
+a real Maya session to validate (rebuild 2024/25/26, confirm all three servers
+connect) — deferred to a session where Maya can be driven.
+
 ### Not addressed (intentionally)
 - `common/transport.py` / `common/schema.py` were in the original plan but the
   transport/quoting logic still lives inline in each server and works; leave it
